@@ -18,7 +18,7 @@ function App() {
           <Route path='*' element={<h1>404 Page</h1>} />
         </Routes>
       </div>
-      <h1>Harry Potter's Unreleased Movies!</h1>
+
     </>
   );
 }
