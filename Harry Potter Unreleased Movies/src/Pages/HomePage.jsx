@@ -9,6 +9,7 @@ function HomePage() {
   const fetchAllMovies = async () => {
     const response = await fetch(
       "http://localhost:5001/Movies/"
+      
     );
 
     if (response) {
@@ -30,7 +31,7 @@ function HomePage() {
   return (
     <>
       {movies.map((movie) => (
-        <li key={movie.ID} className="movie-item">
+        <li key={movie.id} className="movie-item">
           <Link to={`/MoviesDetailsPage/${movie.id}`}>
             <div className="movie-item-wrapper">
               <img src={movie.imageUrl} alt={movie.title} className="homePageImages" />

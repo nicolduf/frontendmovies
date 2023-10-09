@@ -12,7 +12,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<HomePage />} />
-          <Route path='/MoviesDetailsPage' element={<MoviesDetailsPage />} />
+          <Route path='./Pages/MoviesDetailsPage' element={<MoviesDetailsPage />} />
           <Route path='*' element={<h1>404 Page</h1>} />
         </Routes>
       </div>
