@@ -5,7 +5,7 @@ function Navbar() {
     const [isPlaying, setIsPlaying] = useState(false);
 
     const toggleAudio = () => {
-        const audio = new Audio('/src/assets/Hedwigs Theme.mp3');
+        const audio = new Audio('/src/assets/song.mp3');
         if (!isPlaying) {
             audio.play();
         } else {
