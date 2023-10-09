@@ -29,16 +29,34 @@ function HomePage() {
 
   return (
     <>
-   {movies.map(movie => (
-    <li key={movie.ID}>
-        <Link to={`/MoviesDetailsPage/${movie.ID}`}  >
-            <h1 style={{color: "white"}} className="homePageTitles">{movie.title}</h1>
-            <img src={movie.imageUrl} className="homePageImages" style={{ width: "60vw" }}/>
-        </Link>
-    </li>
-))}
+      {movies.map((movie) => (
+        <li key={movie.ID} className="movie-item">
+          <Link to={`/MoviesDetailsPage/${movie.id}`}>
+            <div className="movie-item-wrapper">
+              <img src={movie.imageUrl} alt={movie.title} className="homePageImages" />
+              <h1 className="homePageTitlesOnImage">
+                {movie.title}
+              </h1>
+            </div>
+          </Link>
+        </li>
+      ))}
     </>
-)
+  );
+
+
+//   return (
+//     <>
+//    {movies.map(movie => (
+//     <li key={movie.ID}>
+//         <Link to={`/MoviesDetailsPage/${movie.ID}`}  >
+//             <h1 style={{color: "white"}} className="homePageTitles">{movie.title}</h1>
+//             <img src={movie.imageUrl} className="homePageImages" style={{ width: "60vw" }}/>
+//         </Link>
+//     </li>
+// ))}
+//     </>
+// )
 }
 
 export default HomePage;
