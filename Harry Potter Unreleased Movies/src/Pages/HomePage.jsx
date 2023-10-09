@@ -8,7 +8,7 @@ function HomePage() {
 
   const fetchAllMovies = async () => {
     const response = await fetch(
-      "http://localhost:5001/Movies"
+      "http://localhost:5001/Movies/"
     );
 
     if (response) {
@@ -23,30 +23,22 @@ function HomePage() {
     fetchAllMovies();
   }, []);
 
-  return isLoading ? (
-    <p>Loading...</p>
-  ) : (
-    <div>
-      <div className="homePage">
-        <h3>MOVIES LIST</h3>
-        {movies.map((movie) => {
-          return (
-            <div key={movie.ID}>
-              <Link
-                to={`/${movie.title}`}
-              >
-                <div className="homePageMovies">
-                  <p>{movie.title}</p>
-                </div>
-              </Link>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-
-   
+  if (movies.length === 0) {
+    return <div>Loading...</div>
   }
-  
-  export default HomePage;
+
+  return (
+    <>
+   {movies.map(movie => (
+    <li key={movie.ID}>
+        <Link to={`/MoviesDetailsPage/${movie.ID}`}  >
+            <h1 style={{color: "white"}} className="homePageTitles">{movie.title}</h1>
+            <img src={movie.imageUrl} className="homePageImages" style={{ width: "60vw" }}/>
+        </Link>
+    </li>
+))}
+    </>
+)
+}
+
+export default HomePage;
